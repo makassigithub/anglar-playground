@@ -5,14 +5,14 @@ import { Member } from '../models/member.model';
 export class FamilyService {
     provideMembers() {
         return [
-            new Member('Salif', 38),
-            new Member('Brahima', 35),
-            new Member('Maimouna', 32),
-            new Member('Aissata', 29),
-            new Member('Losseni', 26),
-            new Member('Karim', 23),
-            new Member('Fati', 20),
-            new Member('Allassane', 20),
+            new Member('Salif', 'Traore', 38),
+            new Member('Brahima', 'Traore', 35),
+            new Member('Maimouna', 'Traore', 32),
+            new Member('Aissata', 'Traore', 29),
+            new Member('Losseni', 'Traore', 26),
+            new Member('Karim', 'Traore', 23),
+            new Member('Fati', 'Traore', 20),
+            new Member('Allassane', 'Traore', 20),
         ];
     }
 }

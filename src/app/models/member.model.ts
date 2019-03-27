@@ -1,8 +1,10 @@
 export class Member {
-    name: string;
+    firstName: string;
+    lastName: string;
     age: number;
-    constructor(name, age) {
-        this.name = name;
+    constructor(firstName, lastName, age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.age = age;
     }
 }

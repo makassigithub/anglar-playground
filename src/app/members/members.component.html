@@ -5,17 +5,17 @@
     </div>
    
     <div *ngIf="familyMembers.length">
-            <ol>
-                <li *ngFor="let member of familyMembers"
-                (click)="selectMember(member)"
-                >
-                    {{member.name}}
-                </li>
-            </ol>
-            <member-description 
-                *ngIf="selectedMember" 
-                [inputMember]="selectedMember">
-            </member-description>
+        <ol>
+            <li *ngFor="let member of familyMembers"
+            (click)="selectMember(member)"
+            >
+                {{member.firstName}} {{member.firstName}}
+            </li>
+        </ol>
+        <member-description 
+            *ngIf="selectedMember" 
+            [inputMember]="selectedMember">
+        </member-description>
     </div>
     <button (click)="initialize()">{{getButtonTile()}}</button>
 </div>
