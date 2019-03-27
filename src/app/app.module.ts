@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MembersComponent } from './members/members.component';
 import { MemberComponent } from './members/member/member.component';
 import { FilterComponent } from '../core/filter/filter-component';
+import { FamilyService } from './services/family.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { FilterComponent } from '../core/filter/filter-component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [FamilyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

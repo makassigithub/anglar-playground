@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FamilyService } from '../services/family.service';
 
 @Component({
   selector: 'members-list',
@@ -8,16 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class MembersComponent implements OnInit {
   selectedMember: any;
   familyMembers = [];
-  data = [
-    { name: 'Salif', age: '38' },
-    { name: 'Brahima', age: '35' },
-    { name: 'Maimouna', age: '32' },
-    { name: 'Aissata', age: '29' },
-    { name: 'Losseni', age: '26' },
-    { name: 'Karim', age: '23' },
-    { name: 'Fati', age: '20' },
-    { name: 'Allassane', age: '20' }
-];
+  
+  constructor(private familyService: FamilyService) {
+    this.familyMembers = familyService.provideMembers();
+  }
+
   ngOnInit() {
     this.initialize();
   }
@@ -30,7 +26,7 @@ export class MembersComponent implements OnInit {
   }
   initialize() {
     this.familyMembers = !this.familyMembers.length ?
-    this.data : [];
+    this.familyService.provideMembers() : [];
   }
   getButtonTile() {
     return this.familyMembers.length ? 'RESET' : 'START';
@@ -40,7 +36,7 @@ export class MembersComponent implements OnInit {
     this.familyMembers = this.familyMembers.filter(member =>
     member.name.toLowerCase().includes(term));
    } else {
-    this.familyMembers = this.data;
+    this.familyMembers = this.familyService.provideMembers();
    }
   }
 }
