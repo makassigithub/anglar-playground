@@ -19,4 +19,7 @@ export class FilterComponent implements OnInit {
         console.log(`filter contains the value ${this.filterValue}`);
         this.changed.emit(this.filterValue);
     }
+    log() {
+        console.log('keyUp called');
+    }
 }

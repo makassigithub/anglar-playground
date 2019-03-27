@@ -9,7 +9,7 @@ import { FamilyService } from '../services/family.service';
 export class MembersComponent implements OnInit {
   selectedMember: any;
   familyMembers = [];
-  
+
   constructor(private familyService: FamilyService) {
     this.familyMembers = familyService.provideMembers();
   }
@@ -18,9 +18,6 @@ export class MembersComponent implements OnInit {
     this.initialize();
   }
 
-  changeValue(event: any) {
-    console.log(`Inside members-lis ${event}`);
-  }
   selectMember(member) {
     this.selectedMember = member;
   }
