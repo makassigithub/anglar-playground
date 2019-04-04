@@ -1,10 +1,4 @@
 <div class="filter-wrapper">
-    Filter here: 
-    <input 
-        name="name-filter" 
-        (input)="changeValue($event)" 
-        type="text" 
-        [(ngModel)]="filterValue"
-        (keyup)="log()"
-        />
+    <label for="name-filter" > Filter here: </label>
+    <input name="name-filter" id="name-filter" type="text" [(ngModel)]="filterValue" (keyup)="changeValue($event)"/>
 </div>

@@ -7,6 +7,7 @@ import { MembersComponent } from './members/members.component';
 import { MemberComponent } from './members/member/member.component';
 import { FilterComponent } from '../core/filter/filter-component';
 import { FamilyService } from './services/family.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FamilyService } from './services/family.service';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [FamilyService],
   bootstrap: [AppComponent]

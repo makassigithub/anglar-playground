@@ -1,40 +1,52 @@
 import { Component, OnInit } from '@angular/core';
 import { FamilyService } from '../services/family.service';
 
+import { Member } from '../models/member.model';
+
 @Component({
   selector: 'members-list',
   templateUrl: './members.component.html',
   styleUrls: ['./members.component.css'],
 })
 export class MembersComponent implements OnInit {
-  selectedMember: any;
-  familyMembers = [];
+  selectedMember: Member;
+  familyMembers: Member[] = [];
+  cachedMembers: Member [] = [];
 
-  constructor(private familyService: FamilyService) {
-    this.familyMembers = familyService.provideMembers();
-  }
+  constructor(private familyService: FamilyService) {}
 
   ngOnInit() {
-    this.initialize();
+    this.fetchMembersData();
   }
 
+  fetchMembersData() {
+    this.familyService.provideMembers()
+    .subscribe(members => {
+      console.log(JSON.stringify(members));
+      this.familyMembers = this.cachedMembers = members;
+    });
+  }
   selectMember(member) {
     this.selectedMember = member;
   }
   initialize() {
     this.familyMembers = !this.familyMembers.length ?
-    this.familyService.provideMembers() : [];
+    this.cachedMembers : [];
   }
   getButtonTile() {
     return this.familyMembers.length ? 'RESET' : 'START';
  }
  filterMembers(term: string) {
    if (term.trim().length !== 0) {
-    this.familyMembers = this.familyMembers.filter(member =>
-    member.name.toLowerCase().includes(term));
+    this.familyMembers = this.cachedMembers.filter(member =>
+    member.firstName.toLowerCase().includes(term));
    } else {
-    this.familyMembers = this.familyService.provideMembers();
+    this.familyMembers = this.cachedMembers;
    }
+  }
+
+  clearSelection() {
+    this.selectedMember = null;
   }
 }
 

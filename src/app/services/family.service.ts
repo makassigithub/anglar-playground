@@ -1,18 +1,26 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import { catchError} from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+
+
 import { Member } from '../models/member.model';
 
 @Injectable()
 export class FamilyService {
-    provideMembers() {
-        return [
-            new Member('Salif', 'Traore', 38),
-            new Member('Brahima', 'Traore', 35),
-            new Member('Maimouna', 'Traore', 32),
-            new Member('Aissata', 'Traore', 29),
-            new Member('Losseni', 'Traore', 26),
-            new Member('Karim', 'Traore', 23),
-            new Member('Fati', 'Traore', 20),
-            new Member('Allassane', 'Traore', 20),
-        ];
+    private membersUrl = 'http://localhost:8080/members';
+
+    constructor(private httpClient: HttpClient) {}
+    provideMembers(): Observable<Member[]> {
+        return this.httpClient.get<Member[]>(this.membersUrl)
+            .pipe(
+                catchError(this.handleError<Member[]>('provideMembers', []))
+            );
     }
+    private handleError<T>(operation = 'operation', result?: T) {
+        return (error: any): Observable<T> => {
+          console.error(error);
+          return of(result as T);
+        };
+      }
 }
