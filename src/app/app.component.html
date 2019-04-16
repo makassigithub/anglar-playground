@@ -1,9 +1,16 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="app-root">
-  <h1>
-    Here is family {{ appName }}!
-    <members-list></members-list>
-  </h1>
+    <div>
+        <nav>
+          <ul>
+            <li>  <a href="" [routerLink]="[ '/members']">family members</a></li>
+            <li><a href="" [routerLink]="[ '/blank']"> Empty View</a></li>
+          </ul>
+        </nav>
+    <div>
+    <section>
+        <router-outlet></router-outlet>
+    </section> 
 </div>
 
 

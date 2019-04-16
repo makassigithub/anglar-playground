@@ -22,7 +22,6 @@ export class MembersComponent implements OnInit {
   fetchMembersData() {
     this.familyService.provideMembers()
     .subscribe(members => {
-      console.log(JSON.stringify(members));
       this.familyMembers = this.cachedMembers = members;
     });
   }

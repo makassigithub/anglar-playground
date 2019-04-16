@@ -8,7 +8,7 @@ import { Member } from '../models/member.model';
 
 @Injectable()
 export class FamilyService {
-    private membersUrl = 'http://localhost:8080/members';
+    private membersUrl = 'http://0.0.0.0:8080/members';
 
     constructor(private httpClient: HttpClient) {}
     provideMembers(): Observable<Member[]> {

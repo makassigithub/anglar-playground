@@ -7,8 +7,7 @@
     <div *ngIf="familyMembers.length">
         <ol>
             <li *ngFor="let member of familyMembers"
-            (click)="selectMember(member)"
-            >
+                (click)="selectMember(member)">
                 {{member.firstName}}
             </li>
         </ol>
