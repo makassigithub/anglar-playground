@@ -1,4 +1,18 @@
 <h4 class="custom-background-color">
-    {{ inputMember.firstName }} is {{ inputMember.age }} years old.
+    <span *ngIf="!member"> Loading...</span>
+    <div *ngIf="member">
+        <div class="bloc">
+            <label for="firstName">First Name:</label>
+            <input class="spx" [ngModel]= "member.firstName" type="text" name="firstName" id="fn">  
+        </div>
+       <div class="bloc">
+            <label for="lastName"> Last Name:</label>
+            <input class="spx" [ngModel]= "member.lastName" type="text" name="member.lastName" id="ln"> 
+       </div>
+       <div class="bloc" >
+            <label for="age">Age:</label>
+            <input class="spx" [ngModel]= "member.age" type="text" name="member.age" id="ln">     
+       </div>
+    </div>
 </h4>
 

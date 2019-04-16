@@ -11,7 +11,7 @@ const routes: Routes = [
     { path: 'members', component: MembersComponent },
     { path: 'blank', component: OtherFeatureComponent },
     { path: 'members', component: MembersComponent },
-    { path: 'member/:id', component: MemberComponent },
+    { path: 'member/:name', component: MemberComponent },
 ];
 
 @NgModule({

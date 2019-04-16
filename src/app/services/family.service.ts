@@ -11,12 +11,19 @@ export class FamilyService {
     private membersUrl = 'http://0.0.0.0:8080/members';
 
     constructor(private httpClient: HttpClient) {}
+
     provideMembers(): Observable<Member[]> {
-        return this.httpClient.get<Member[]>(this.membersUrl)
-            .pipe(
-                catchError(this.handleError<Member[]>('provideMembers', []))
-            );
+      return this.httpClient.get<Member[]>(this.membersUrl)
+        .pipe(
+            catchError(this.handleError<Member[]>('provideMembers', []))
+        );
     }
+
+    provideMemberByName(name) {
+      return this.httpClient.get<Member>(`${this.membersUrl}/${name}`)
+      .pipe(catchError(this.handleError<Member>('provideMembers', null)));
+    }
+
     private handleError<T>(operation = 'operation', result?: T) {
         return (error: any): Observable<T> => {
           console.error(error);

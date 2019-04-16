@@ -8,13 +8,8 @@
         <ol>
             <li *ngFor="let member of familyMembers"
                 (click)="selectMember(member)">
-                {{member.firstName}}
+                <a href="" [routerLink]="['/member', member.firstName]"> {{member.firstName}}</a>
             </li>
         </ol>
-        <member-description 
-            *ngIf="selectedMember" 
-            [inputMember]="selectedMember">
-        </member-description>
-        <button *ngIf="selectedMember" (click)="clearSelection()">clear slection</button>
     </div>
 </div>

@@ -4,7 +4,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var memberRouter = require('./routes/memberRouter');
+var memberRouter = require('./routes/memberRouter')(express.Router());
 
 const config = require('./config');
 

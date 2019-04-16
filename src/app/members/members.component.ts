@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FamilyService } from '../services/family.service';
 
 import { Member } from '../models/member.model';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'members-list',
+  selector: 'app-members-list',
   templateUrl: './members.component.html',
   styleUrls: ['./members.component.css'],
 })
@@ -13,7 +14,10 @@ export class MembersComponent implements OnInit {
   familyMembers: Member[] = [];
   cachedMembers: Member [] = [];
 
-  constructor(private familyService: FamilyService) {}
+  constructor(
+    private familyService: FamilyService,
+    private router: Router,
+    ) {}
 
   ngOnInit() {
     this.fetchMembersData();
@@ -25,9 +29,7 @@ export class MembersComponent implements OnInit {
       this.familyMembers = this.cachedMembers = members;
     });
   }
-  selectMember(member) {
-    this.selectedMember = member;
-  }
+
   initialize() {
     this.familyMembers = !this.familyMembers.length ?
     this.cachedMembers : [];
