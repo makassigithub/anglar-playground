@@ -1,5 +1,7 @@
-import { Component, Input, OnInit, OnChanges, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { map, tap } from 'rxjs/operators';
+
 import { FamilyService } from '../../services/family.service';
 import { Member } from 'src/app/models/member.model';
 
@@ -19,8 +21,24 @@ export class MemberComponent implements OnInit {
     ) {}
 
     ngOnInit() {
+        /* USING SNAPSHOT
+
         this.name = this.route.snapshot.params.name;
         this.familyService.provideMemberByName(this.name)
-            .subscribe(selectedMember => this.member = selectedMember);
+        .subscribe(selectedMember => this.member = selectedMember);
+        */
+
+        /* USING OBSERVABLES */
+        this.route.params.pipe(
+            map(params => params.name),
+            tap(name => this.name = name)
+        )
+        .subscribe(name => {
+            this.familyService.provideMemberByName(name)
+            .subscribe(member => this.member = member,
+                err => console.log(err)
+            );
+        });
+
     }
 }

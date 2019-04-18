@@ -7,10 +7,9 @@ import { OtherFeatureComponent } from './otherFeature/other-feature.component';
 
 
 const routes: Routes = [
-    // { path: '', pathMatch: 'full', redirectTo: 'member' },
+    { path: '', pathMatch: 'full', redirectTo: 'member' },
     { path: 'members', component: MembersComponent },
     { path: 'blank', component: OtherFeatureComponent },
-    { path: 'members', component: MembersComponent },
     { path: 'member/:name', component: MemberComponent },
 ];
 
