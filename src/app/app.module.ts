@@ -5,17 +5,14 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRouterModule, routableComponents } from './app-routing-module';
 import { AppComponent } from './app.component';
-import { MembersComponent } from './members/members.component';
-import { MemberComponent } from './members/member/member.component';
 import { FilterComponent } from '../core/filter/filter-component';
 import { FamilyService } from './services/family.service';
+import { FamilyServiceResolver } from './services/family.service.resolver';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MembersComponent,
-    MemberComponent,
     FilterComponent,
     routableComponents
   ],
@@ -25,7 +22,7 @@ import { FamilyService } from './services/family.service';
     HttpClientModule,
     AppRouterModule
   ],
-  providers: [FamilyService],
+  providers: [FamilyService, FamilyServiceResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

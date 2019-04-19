@@ -6,8 +6,7 @@
     <button (click)="initialize()">{{getButtonTile()}}</button>
     <div *ngIf="familyMembers.length">
         <ol>
-            <li *ngFor="let member of familyMembers"
-                (click)="selectMember(member)">
+            <li *ngFor="let member of familyMembers">
                 <a href="" [routerLink]="['/member', member.firstName]"> {{member.firstName}}</a>
             </li>
         </ol>
