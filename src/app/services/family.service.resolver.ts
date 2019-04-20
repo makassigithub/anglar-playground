@@ -14,7 +14,10 @@ export class FamilyServiceResolver implements Resolve<Member> {
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot ):
         Observable<any>|Promise<any>|any {
-            const name = route.params.name;
+            const { name } = route.params;
+            if (name === 'Karim') {
+                return this.router.navigate(['blank']);
+            }
             return this.familyService.provideMemberByName(name);
     }
 }
