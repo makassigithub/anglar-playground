@@ -1,0 +1,21 @@
+.login {
+    padding: 5px;
+}
+
+input {
+    border: 1px solid blue;
+    justify-content: space-between;
+    margin: 10;
+    padding: 10;
+}
+
+.error {
+    margin: 10;
+    padding: 10;
+    background: lightpink;
+}
+
+.error-text {
+    color: red;
+    border: 1px solid red
+}

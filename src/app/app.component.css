@@ -1,5 +1,9 @@
 .app-root {
-    background: grey;
+    border: 1px solid grey;
     text-align:center;
-    padding: 5px
+    padding: 5px;
+}
+
+.welcome {
+    background: cornflowerblue;
 }

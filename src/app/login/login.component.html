@@ -1,0 +1,16 @@
+<div class="login">
+    <div class="input">
+        <label for="username"> Username:</label>
+        <input type="text" id="username" [(ngModel)]="username">
+    </div>
+    <div class="input">
+        <label for="password"> Password:</label>
+        <input type="password" id="password" [(ngModel)]="password">
+    </div>
+    <div class="button">
+           <button type="submit" (click)="login()">Login</button>
+    </div>
+    <div *ngIf="loginFailed" class="error">
+        <h6 class="error-text">Login failed</h6>
+    </div>
+</div>
