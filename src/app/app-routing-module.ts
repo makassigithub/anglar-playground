@@ -7,12 +7,16 @@ import { OtherFeatureComponent } from './otherFeature/other-feature.component';
 import { FamilyServiceResolver } from './services/family.service.resolver';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { CanActivateAuthGuard } from './services/authGard';
 
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'members', component: MembersComponent },
+    { path: 'members',
+        component: MembersComponent,
+        canActivate: [CanActivateAuthGuard]
+    },
     { path: 'blank', component: OtherFeatureComponent },
     { path: 'member/:name',
         component: MemberComponent,

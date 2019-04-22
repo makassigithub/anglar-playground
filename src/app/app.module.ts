@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { FilterComponent } from '../core/filter/filter-component';
 import { FamilyService } from './services/family.service';
 import { FamilyServiceResolver } from './services/family.service.resolver';
+import { CanActivateAuthGuard } from './services/authGard';
+import { UserProfileService } from './services/userProfileService';
 
 
 @NgModule({
@@ -22,7 +24,12 @@ import { FamilyServiceResolver } from './services/family.service.resolver';
     HttpClientModule,
     AppRouterModule
   ],
-  providers: [FamilyService, FamilyServiceResolver],
+  providers: [
+    FamilyService,
+    FamilyServiceResolver,
+    CanActivateAuthGuard,
+    UserProfileService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
