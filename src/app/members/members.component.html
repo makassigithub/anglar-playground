@@ -1,5 +1,5 @@
 <div class="member-list-wrapper">
-    <h3>My family members are: </h3>
+    <h3>My family members</h3>
     <div>
         <app-filter (changed)="filterMembers($event)"></app-filter>
     </div>
@@ -7,8 +7,11 @@
     <div *ngIf="familyMembers.length">
         <ol>
             <li *ngFor="let member of familyMembers">
-                <a href="" [routerLink]="['/member', member.firstName]"> {{member.firstName}}</a>
+                <a href="" [routerLink]="['/members', member.firstName]"> {{member.firstName}}</a>
             </li>
         </ol>
     </div>
+    <section>
+        <router-outlet></router-outlet>
+    </section> 
 </div>

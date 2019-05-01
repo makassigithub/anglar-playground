@@ -13,16 +13,15 @@ import { CanActivateAuthGuard } from './services/authGard';
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'login', component: LoginComponent },
+    { path: 'blank', component: OtherFeatureComponent },
     { path: 'members',
         component: MembersComponent,
-        canActivate: [CanActivateAuthGuard]
-    },
-    { path: 'blank', component: OtherFeatureComponent },
-    { path: 'member/:name',
-        component: MemberComponent,
-        resolve: {
-            member: FamilyServiceResolver,
-        }
+        canActivate: [CanActivateAuthGuard],
+        canActivateChild: [CanActivateAuthGuard],
+        children : [
+            { path: '', component: HomeComponent},
+            { path: ':name', component: MemberComponent},
+        ]
     },
 ];
 

@@ -28,7 +28,7 @@ export class MemberComponent implements OnInit {
         .subscribe(selectedMember => this.member = selectedMember);
         */
 
-        /* USING OBSERVABLES
+        /* USING OBSERVABLES  */
         this.route.params.pipe(
             map(params => params.name),
             tap(name => this.name = name)
@@ -39,9 +39,10 @@ export class MemberComponent implements OnInit {
                 err => console.log(err)
             );
         });
-        */
 
-       /* Using a Resolver Middleware */
-        this.route.data.subscribe((data: { member: Member}) => this.member = data.member);
+       /* Using a Resolver Middleware 
+        this.route.data.subscribe((data: { member: Member}) => {
+            return this.member = data.member;
+        });*/
     }
 }
